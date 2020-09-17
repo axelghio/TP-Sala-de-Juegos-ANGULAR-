@@ -1,0 +1,71 @@
+h1{
+    text-align: center;
+    margin-top: -38%;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 5.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+
+p{
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 5.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+.tablonInicio{ 
+    align-content: center;
+    align-items: center;
+    margin-top: -50%;
+    margin-left: 12%;
+    margin-right: 15%;
+}
+
+.img1,.img2, .img3, .img4{
+    margin-top: 3%;
+    margin-left: 15%;
+    margin-right: 5%;
+}.img5, .img6, .img7{
+    margin-top: 3%;
+    margin-left: 25%;
+    margin-right: 5%;
+}
+
+h4{
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 2em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+.row, .col{
+    background-color: rgba(0, 0, 125, 0.4);
+    width: 1500px;
+    height: 300px;
+}
+
+.tablonInicio, .row, .col{
+    border-style: double;
+    border-color: steelblue;
+}
+
+.Exit{
+    margin-top: 35%;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 2.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+.QuienSoy{
+    margin-top: -5%;
+    margin-left: 85%;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 1.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}

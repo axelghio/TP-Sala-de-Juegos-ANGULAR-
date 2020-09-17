@@ -1,0 +1,105 @@
+*{
+    font-family: "8Bits";
+}
+
+div.container{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-around;
+    color: rgb(13, 120, 128);
+}
+
+span{
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 2.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+.tateti {
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.row{
+    border-style: groove;
+    display: flex;
+    width: 100%;
+    height: 33.3%;
+}
+.uno{
+    border-style: groove;
+}
+.dos{
+    border-style: groove;
+}
+
+.tres{
+    border-style: groove;
+}
+
+.column{
+    flex: 33.3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    border-style: groove;
+}
+
+.mensajes {
+    background: rgba(34, 100, 243, 0.815);
+    border: double 5px white;
+    width: 40%;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gano{
+    background-color: white;
+}
+
+.perdio{
+    background-color: rgb(255, 27, 27);
+}
+
+.disabled{
+    pointer-events: none;
+}
+
+div.column:hover{
+    cursor: pointer;
+    border: ridge 2px rgba(139, 55, 132, 0.774);
+}
+
+.jugador{
+    pointer-events: none;
+    cursor: not-allowed;
+    color: tomato;
+}
+
+.maquina{
+    pointer-events: none;
+    cursor: not-allowed;
+    color: violet;
+}
+
+.termino{
+    pointer-events: none;
+    background-color: #000000eb;
+}
+
+.Exit{
+    margin-top: 1%;
+    margin-left: 5%;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: .5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}

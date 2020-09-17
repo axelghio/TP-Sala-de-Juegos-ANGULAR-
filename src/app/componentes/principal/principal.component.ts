@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-
+import {Subscription} from "rxjs";
+import { timer } from 'rxjs';
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
@@ -11,11 +13,10 @@ export class PrincipalComponent implements OnInit {
     isFirstOpen: true,
     isFirstDisabled: false
   };
-  constructor() {  }
-
+  
   ngOnInit() {
   }
 
- 
+  constructor(){}
 
-}
+  }

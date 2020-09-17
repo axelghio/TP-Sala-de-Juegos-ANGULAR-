@@ -21,29 +21,38 @@ import { QuienSoyComponent } from '../componentes/quien-soy/quien-soy.component'
 import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/listado-de-paises.component'
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
-
+import { PptComponent } from '../componentes/ppt/ppt.component';
+import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
+import { TatetiComponent } from '../componentes/tateti/tateti.component';
+import { MemotestComponent } from '../componentes/memotest/memotest.component';
+import { OcupaComponent } from '../componentes/ocupa/ocupa.component';
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
-{path: 'Jugadores' , component: JugadoresListadoComponent},
-{path: '' , component: PrincipalComponent},
-{path: 'Login' , component: LoginComponent},
-{path: 'Mapa' , component: MapaDeGoogleComponent},
-{path: 'QuienSoy' , component: QuienSoyComponent},
-{path: 'Registro' , component: RegistroComponent},
-{path: 'Principal' , component: PrincipalComponent},
-{path: 'Listado' , component: ListadoComponent},
-{path: 'Paises' , component: ListadoDePaisesComponent},
+{path: 'Jugadores', component: JugadoresListadoComponent},
+{path: '', component: PrincipalComponent},
+{path: 'Login', component: LoginComponent},
+{path: 'Mapa', component: MapaDeGoogleComponent},
+{path: 'QuienSoy', component: QuienSoyComponent},
+{path: 'Registro', component: RegistroComponent},
+{path: 'Principal', component: PrincipalComponent},
+{path: 'Listado', component: ListadoComponent},
+{path: 'Paises', component: ListadoDePaisesComponent},
+{path: 'Juegos', component: JuegosComponent},
+{path: '', component: MenuCardComponent},
+{path: 'AdivinaMasListado', component: AdivinaMasListadoComponent},
+{path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent},
 
-{ path: 'Juegos' ,
-component: JuegosComponent ,
-children:
-     [{path: '' , component: MenuCardComponent},
-     {path: 'Adivina' , component: AdivinaElNumeroComponent},
-      {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
-      {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
-      {path: 'Agilidad' , component: AgilidadAritmeticaComponent}]
-},
+//JUEGOS
+{path: 'Adivina', component: AdivinaElNumeroComponent},
+{path: 'Agilidad', component: AgilidadAritmeticaComponent},
+{path: 'Ppt', component: PptComponent},
+{path: 'Anagrama', component: AnagramaComponent},
+{path: 'Tateti', component: TatetiComponent},
+{path: 'Memotest', component: MemotestComponent},
+{path: 'Ocupa', component: OcupaComponent},
+
+//OTROS
 {path: '**' , component: ErrorComponent},
 {path: 'error' , component: ErrorComponent}];
 

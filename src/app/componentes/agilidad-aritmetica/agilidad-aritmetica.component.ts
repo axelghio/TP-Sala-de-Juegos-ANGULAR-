@@ -3,6 +3,7 @@ import { JuegoAgilidad } from '../../clases/juego-agilidad'
 
 import {Subscription} from "rxjs";
 import { timer } from 'rxjs';
+
 @Component({
   selector: 'app-agilidad-aritmetica',
   templateUrl: './agilidad-aritmetica.component.html',
@@ -11,22 +12,31 @@ import { timer } from 'rxjs';
 export class AgilidadAritmeticaComponent implements OnInit {
    @Output() 
   enviarJuego :EventEmitter<any>= new EventEmitter<any>();
-  nuevoJuego : JuegoAgilidad;
+
+  gano : boolean;
+  resultadoIngresado : number;
+  numeroUno : number = 0;
+  numeroDos : number = 0;
+  operador : string = '+';
+  operadoradores : string[] = ["-", "+", "%", "*"];
+  mensaje : string;
+
   ocultarVerificar: boolean;
   Tiempo: number;
   repetidor:any;
+
   private subscription: Subscription;
+
   ngOnInit() {
   }
    constructor() {
-     this.ocultarVerificar=true;
-     this.Tiempo=5; 
-    this.nuevoJuego = new JuegoAgilidad();
-    console.info("Inicio agilidad");  
+    this.juegoEnPausa();
   }
+
   NuevoJuego() {
-    this.ocultarVerificar=false;
-   this.repetidor = setInterval(()=>{ 
+      this.generarCalculo();
+      this.ocultarVerificar=false;
+      this.repetidor = setInterval(()=>{ 
       
       this.Tiempo--;
       console.log("llego", this.Tiempo);
@@ -34,18 +44,110 @@ export class AgilidadAritmeticaComponent implements OnInit {
         clearInterval(this.repetidor);
         this.verificar();
         this.ocultarVerificar=true;
-        this.Tiempo=5;
+        this.Tiempo=10;
       }
       }, 900);
-
   }
+
   verificar()
   {
     this.ocultarVerificar=false;
     clearInterval(this.repetidor);
-   
 
-   
+    if(this.realizarCalculo())
+    {
+      this.mostrarMensaje(true);
+    }
+    else
+    {
+      this.mostrarMensaje(false)
+    }
   }  
 
+  generarCalculo()
+  {
+    let i =  Math.floor(Math.random() * (this.operadoradores.length - 0) + 0);
+    this.operador = this.operadoradores[i];
+    this.numeroUno = Math.floor(Math.random() * (10 - 1) + 1);
+    this.numeroDos = Math.floor(Math.random() * (10 - 1) + 1);
+  } 
+
+  realizarCalculo() : boolean
+  {
+    let retorno = false
+    let resultado;
+
+    switch(this.operador)
+    {
+      case "%":
+        resultado = (this.numeroUno % this.numeroDos);
+        if(resultado == this.resultadoIngresado)
+        {
+          retorno = true;
+        }
+        break;
+      case "*":
+        resultado = (this.numeroUno * this.numeroDos);
+        if(resultado == this.resultadoIngresado)
+        {
+          retorno = true;
+        }
+        break;
+      case "+":
+        resultado = (this.numeroUno + this.numeroDos);
+        if(resultado == this.resultadoIngresado)
+        {
+          retorno = true;
+        }
+        break;
+      case "-":
+        resultado = (this.numeroUno - this.numeroDos);
+        if(resultado == this.resultadoIngresado)
+        {
+          retorno = true;
+        }
+        break;
+    }
+    return retorno;
+  }
+
+  mostrarMensaje(gano : boolean)
+  {
+    if(gano)
+    {
+      this.gano = true;
+      document.getElementById("mensajeAritmetica").style.background = "rgb(40, 216, 63)"
+      this.mensaje = "¡ADIVINASTE EL NUMERO, SOS UN GENIO!";
+    }
+    else
+    {
+      this.gano = false;
+      document.getElementById("mensajeAritmetica").style.background = "rgb(204, 40, 40)"
+      this.mensaje = "¡RESPUESTA INCORRECTA!";
+    }
+    this.fadeIn();
+  }
+
+  fadeIn()
+  {
+    setTimeout(() => {
+      this.mensaje = '';
+      this.reiniciarVariables();
+      this.juegoEnPausa();
+    },1500);
+  }
+
+  reiniciarVariables()
+  {
+    this.numeroUno = 0;
+    this.numeroDos = 0;
+    this.operador = "+";
+    this.resultadoIngresado = null;
+  }
+
+  juegoEnPausa()
+  {
+    this.ocultarVerificar=true;
+    this.Tiempo=10; 
+  }
 }
