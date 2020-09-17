@@ -9,9 +9,9 @@ export class AnagramaComponent implements OnInit {
   usuariosGeneral
   palabraIngresada : string = "";
   palabraAdivinar: string;
-  palabras:string[] = ['habian','usted','estados','hizo','nadie','paises','horas','posible','tarde','ley','importante',
-  'guerra','desarrollo','proceso','realidad','sentido','lado','cambio','mano','eran','estar','numero','rey','correr','repetir','escuela',
-  'matematica','genio','padrino', 'barco','pelota', 'hermoso', 'cambio', 'realidad', 'comenzar', 'teclado', 'monarca'];
+  palabras:string[] = ['juegos','sala','cincuenta','renderizado','salario','jueces','asado','astuto','soldado','manteca','ropero',
+  'centavo','cristal','sandia','mermelada','banana','matematica','genio','padrino', 'barco','pelota', ,'numero','rey','correr','repetir','escuela',
+  'helado','roca','pepita','manta','estar', 'hermoso', 'cambio', 'realidad', 'comenzar', 'teclado', 'manzana'];
   comenzado : boolean = false;
 
   gano : boolean;
