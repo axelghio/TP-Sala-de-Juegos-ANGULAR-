@@ -48,3 +48,19 @@ p{
     border-style: double;
     border-color: steelblue;
 }
+
+.QuienSoy > h4{
+    margin-top: -4%;
+    margin-left: 85%;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 3em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+.Salir > h4{
+    margin-top: 38%;
+    margin-left: 45%;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 3em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}

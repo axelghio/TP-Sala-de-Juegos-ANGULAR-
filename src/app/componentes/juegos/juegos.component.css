@@ -56,16 +56,9 @@ h4{
 }
 
 .Exit{
+    margin-left: 5%;
     margin-top: 35%;
     text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
     color: white;
     font: 2.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
-}
-
-.QuienSoy{
-    margin-top: -5%;
-    margin-left: 85%;
-    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
-    color: white;
-    font: 1.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
 }

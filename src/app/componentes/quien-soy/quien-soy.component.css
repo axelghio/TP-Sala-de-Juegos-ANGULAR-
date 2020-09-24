@@ -1,43 +1,40 @@
 .imagenDeQuienSoy{
     width: 100%;
-   
-    }
-body {
-    font: 20px Montserrat, sans-serif;
-    line-height: 1.8;
-    color: #f5f6f7;
 }
-p {font-size: 16px;}
-.margin {margin-bottom: 45px;}
-.bg-1 { 
-    background-color: #1abc9c; /* Green */
-    color: #ffffff;
+
+.presentacion{
+    margin-top: 2%;
+    margin-left: 18%;
+    width: 1200px;
+    height: 500px;
+    background-color: khaki;
+    border-style: groove;
 }
-.bg-2 { 
-    background-color: #474e5d; /* Dark Blue */
-    color: #ffffff;
+
+.presentacion > img{
+    margin-left: 35%;
 }
-.bg-3 { 
-    background-color: #ffffff; /* White */
-    color: #555555;
+
+h3{
+    text-align: center;
 }
-.bg-4 { 
-    background-color: #2f2f2f; /* Black Gray */
-    color: #fff;
+p{
+    margin-left: 2%;
+    margin-right: 2%;
 }
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
+
+.mi-Game{
+    margin-top: 5%;
+    margin-left: 18%;
+    width: 1200px;
+    height: 250px;
+    background-color: khaki;
 }
-.navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
-}
-.navbar-nav  li a:hover {
-    color: #1abc9c !important;
+
+.Exit{
+    margin-left: 5%;
+    margin-top: 0%;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 2.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
 }
