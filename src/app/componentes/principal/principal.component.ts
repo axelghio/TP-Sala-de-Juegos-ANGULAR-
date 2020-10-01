@@ -3,6 +3,10 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import {Subscription} from "rxjs";
 import { timer } from 'rxjs';
+
+//firebase
+import { AuthService } from '../../servicios/auth.service'
+
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
@@ -15,8 +19,18 @@ export class PrincipalComponent implements OnInit {
   };
   
   ngOnInit() {
-  }
-
-  constructor(){}
 
   }
+
+  constructor(private auth: AuthService){
+    this.Mostrar();
+  }
+
+  Mostrar()
+  {
+    this.auth.getCurrentUser().then((response: any) => {
+      console.log("Usuario actualmente logeado: " + response.email);
+    });
+  }
+
+}

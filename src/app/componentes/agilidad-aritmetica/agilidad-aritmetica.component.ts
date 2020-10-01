@@ -1,5 +1,8 @@
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
 import { JuegoAgilidad } from '../../clases/juego-agilidad'
+import { Usuario } from '../../clases/user';
+import { FdbService } from '../../servicios/fdb.service';
+import { AuthService } from '../../servicios/auth.service';
 
 import {Subscription} from "rxjs";
 import { timer } from 'rxjs';
@@ -25,11 +28,20 @@ export class AgilidadAritmeticaComponent implements OnInit {
   Tiempo: number;
   repetidor:any;
 
+  user:Usuario;
+
   private subscription: Subscription;
 
   ngOnInit() {
   }
-   constructor() {
+   constructor(private db: FdbService, private auth: AuthService) {
+    this.user = new Usuario;
+    auth.getCurrentUser().then((response:any)=>{
+      this.user.correo = response.email;
+      this.user.gano = 0;
+      this.user.perdio = 0;
+      this.user.juego = "agilidad aritmetica";
+    });
     this.juegoEnPausa();
   }
 
@@ -118,6 +130,8 @@ export class AgilidadAritmeticaComponent implements OnInit {
       this.gano = true;
       document.getElementById("mensajeAritmetica").style.background = "rgb(40, 216, 63)"
       this.mensaje = "¡ADIVINASTE EL NUMERO, SOS UN GENIO!";
+      this.user.gano++;
+      this.db.insertIndividualScore(this.user);
     }
     else
     {
@@ -134,6 +148,8 @@ export class AgilidadAritmeticaComponent implements OnInit {
       this.mensaje = '';
       this.reiniciarVariables();
       this.juegoEnPausa();
+      this.user.perdio++;
+      this.db.insertIndividualScore(this.user);
     },1500);
   }
 

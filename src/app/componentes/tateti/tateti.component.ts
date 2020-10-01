@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as $ from 'jquery'
 import { Router } from '@angular/router';
-import { JuegoServiceService } from '../../servicios/juego-service.service';
 
 @Component({
   selector: 'app-tateti',
@@ -16,7 +15,7 @@ export class TatetiComponent implements OnInit {
   listadoJugadores;
   usuarioLogueado;
 
-  constructor(private route:Router, private servicio: JuegoServiceService) {
+  constructor(private route:Router) {
   }
 
   ngOnInit(): void {

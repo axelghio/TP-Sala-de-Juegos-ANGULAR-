@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../../clases/user';
+import { FdbService } from '../../servicios/fdb.service';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-anagrama',
@@ -19,7 +22,18 @@ export class AnagramaComponent implements OnInit {
   usuarioLogueado;
   palabraDelAnagrama : string = 'Click para comenzar.';
   mensajeAlUser : string = '';
-  constructor() { }
+  
+  user:Usuario;
+
+  constructor(private db: FdbService, private auth: AuthService) { 
+    this.user = new Usuario;
+    auth.getCurrentUser().then((response:any)=>{
+      this.user.correo = response.email;
+      this.user.gano = 0;
+      this.user.perdio = 0;
+      this.user.juego = "agilidad aritmetica";
+    });
+  }
 
   ngOnInit() {
   }
@@ -67,11 +81,15 @@ export class AnagramaComponent implements OnInit {
     {
       elemento.style.color = "rgb(39, 185, 26)";
       this.mensajeAlUser = mensaje;
+      this.user.gano++;
+      this.db.insertIndividualScore(this.user);
     }
     else
     {
       elemento.style.color = "rgb(197, 30, 30)";
       this.mensajeAlUser = mensaje;
+      this.user.perdio++;
+      this.db.insertIndividualScore(this.user);
     }
     setTimeout(() => {
       this.ReiniciarJuego();

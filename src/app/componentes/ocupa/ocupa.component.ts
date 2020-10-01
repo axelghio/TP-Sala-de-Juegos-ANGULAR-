@@ -1,6 +1,9 @@
 import { stringToFileBuffer } from '@angular-devkit/core/src/virtual-fs/host';
 import { Component, OnInit } from '@angular/core';
 import { BlockLike } from 'typescript';
+import { Usuario } from '../../clases/user';
+import { FdbService } from '../../servicios/fdb.service';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-ocupa',
@@ -39,7 +42,18 @@ export class OcupaComponent implements OnInit {
   cartaPalo: string = '';
   cartaNumero: number = Math.floor( Math.random() * (10) + 1);
   errorMSJ = '';
-  constructor() { }
+  
+  user:Usuario;
+
+  constructor(private db: FdbService, private auth: AuthService) { 
+    this.user = new Usuario;
+    auth.getCurrentUser().then((response:any)=>{
+      this.user.correo = response.email;
+      this.user.gano = 0;
+      this.user.perdio = 0;
+      this.user.juego = "agilidad aritmetica";
+    });
+  }
 
   ngOnInit(): void {
     this.primeraMano();
@@ -532,10 +546,15 @@ export class OcupaComponent implements OnInit {
     if(this.puntajeNPC >= 10)
     {
       console.log("El ganador es el NPC.");
+      this.user.perdio++;
+      this.db.insertIndividualScore(this.user);
+
     }
     else if(this.puntajePlayer >= 10)
     {
       console.log("El ganador es el Player.");
+      this.user.gano++;
+      this.db.insertIndividualScore(this.user);
     }
     else{
       if(this.jugadaDelPlayer != '' && this.turnoPlayer)

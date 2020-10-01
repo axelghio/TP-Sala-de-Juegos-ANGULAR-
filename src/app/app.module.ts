@@ -3,90 +3,65 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
-import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
 import { LoginComponent } from './componentes/login/login.component';
-//  import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
-
-// import { AccordionModule } from 'ngx-bootstrap';
-// agrego las clases para utilizar ruteo
 import { RouterModule, Routes } from '@angular/router';
-
-import { MiHttpService } from './servicios/mi-http/mi-http.service'; 
-import { PaisesService } from './servicios/paises.service'; 
-
-import { JugadoresService } from './servicios/jugadores.service'; 
-import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service'; 
 import { ErrorComponent } from './componentes/error/error.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { AgilidadAritmeticaComponent } from './componentes/agilidad-aritmetica/agilidad-aritmetica.component';
-import { MenuComponent } from './componentes/menu/menu.component';
-import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/adivina-mas-listado.component';
-import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
-import { ListadoComponent } from './componentes/listado/listado.component';
-// declaro donde quiero que se dirija
-/*
-const MiRuteo = [{path: 'error' , component: ErrorComponent},
-{path: 'Login' , component: LoginComponent},
-{path: 'Principal' , component: PrincipalComponent , pathMatch: 'full'},
-{path: 'Adivina' , component: AdivinaElNumeroComponent},
-{path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
-{path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
-{path: 'Agilidad' , component: AgilidadAritmeticaComponent},
-{path: '' , component: LoginComponent , pathMatch: 'full'},
-
-{path: '**' , component: ErrorComponent} ];
-*/
-import { JugadoresListadoComponent } from './componentes/jugadores-listado/jugadores-listado.component';
-
-import { JuegoServiceService } from './servicios/juego-service.service';
-import { ListadosComponent } from './componentes/listados/listados.component';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
-import { MenuCardComponent } from './componentes/menu-card/menu-card.component';
-import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
-import { ListadoDePaisesComponent } from './componentes/listado-de-paises/listado-de-paises.component';
-import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-google.component'
 import { AgmCoreModule } from '@agm/core';
-import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
 import { PptComponent } from './componentes/ppt/ppt.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { MemotestComponent } from './componentes/memotest/memotest.component';
 import { OcupaComponent } from './componentes/ocupa/ocupa.component';
+import { ClasificacionesIndividualesComponent } from './componentes/clasificaciones-individuales/clasificaciones-individuales.component';
+import { ClasificacionesGlobalesComponent } from './componentes/clasificaciones-globales/clasificaciones-globales.component';
+
+//Import firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+//servicios
+import { AuthService } from "../app/servicios/auth.service";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDlW-3mHm-Z3peRyHSROVl6nmSrpZDRURo",
+  authDomain: "sala-de-juegos-6f20b.firebaseapp.com",
+  databaseURL: "https://sala-de-juegos-6f20b.firebaseio.com",
+  projectId: "sala-de-juegos-6f20b",
+  storageBucket: "sala-de-juegos-6f20b.appspot.com",
+  messagingSenderId: "549977025079",
+  appId: "1:549977025079:web:4c5a8d9a1d993f6fb16db2",
+  measurementId: "G-W0JF3YLNHD"
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     AdivinaElNumeroComponent,
-    ListadoDeResultadosComponent,
     ErrorComponent,
     PrincipalComponent,
     LoginComponent,
     AgilidadAritmeticaComponent,
-    MenuComponent,
-    AdivinaMasListadoComponent,
-    AgilidadMasListadoComponent,
-    ListadoComponent,
-    ListadosComponent,
     JuegosComponent,
     RegistroComponent,
-    MenuCardComponent,
-    CabeceraComponent,
     QuienSoyComponent,
     AnagramaComponent,
-    ListadoDePaisesComponent,
-    MapaDeGoogleComponent,
-    JugadoresListadoComponent,
-    InputJugadoresComponent,
     SexoPipe,
     PptComponent,
     TatetiComponent,
     MemotestComponent,
-    OcupaComponent
+    OcupaComponent,
+    ClasificacionesIndividualesComponent,
+    ClasificacionesGlobalesComponent
   ],
   imports: [
     BrowserModule,
@@ -95,12 +70,14 @@ import { OcupaComponent } from './componentes/ocupa/ocupa.component';
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
-    // NgbModule.forRoot(MiRuteo),
-    // importo el ruteo
-    // RouterModule.forRoot(MiRuteo)
+    }),
+    //firebase
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

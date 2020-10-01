@@ -4,7 +4,7 @@
   <div class="boxLogin">
     <div class="loginUsername">
       <div class="input-group mb-3">
-        <input type="text" class="form-control bg-transparent" placeholder="Username" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="usuario"  name="uname" required>
+        <input type="text" class="form-control bg-transparent" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="usuario"  name="uname" required>
         <div class="input-group-append">
           <span class="input-group-text bg-transparent text-white" id="basic-addon2">@example.com</span>
         </div>
@@ -19,7 +19,7 @@
       <button type="button" class="btn btn-outline-primary" *ngIf="logeando"  (click)="Entrar()">Conectarse</button>
     </div>
     <div class="btnRegister">
-      <button type="button" class="btn btn-outline-primary">Registrarse</button>
+      <button type="button" class="btn btn-outline-primary" (click)="Registrarse()">Registrarse</button>
     </div>
   </div>
 </div>

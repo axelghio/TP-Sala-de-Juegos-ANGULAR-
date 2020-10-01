@@ -4,6 +4,9 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {Subscription} from "rxjs";
 import { timer } from 'rxjs';
 
+//firebase
+import { AuthService } from '../../servicios/auth.service'
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,13 +28,21 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router) {
-
+    private router: Router,
+    private service: AuthService) {
+      service.logOutCurrentUser();
   }
 
   Entrar() {
-    if (this.usuario === '' && this.clave === '') {
-      this.router.navigate(['/Principal']);
+    if(this.usuario != '' && this.clave !='')
+    {
+      this.service.login(this.usuario, this.clave).then( res =>{
+        this.router.navigate(['/Principal']);
+      }).catch();
     }
+  }
+
+  Registrarse(){
+    this.router.navigate(['/Registro']);
   }
 }

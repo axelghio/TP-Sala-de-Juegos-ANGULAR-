@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../../clases/user';
+import { FdbService } from '../../servicios/fdb.service';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-ppt',
@@ -17,7 +20,17 @@ export class PptComponent implements OnInit {
   papel: boolean = false;
   tijera: boolean = false;
 
-  constructor() { }
+  user:Usuario;
+
+  constructor(private db: FdbService, private auth: AuthService) { 
+    this.user = new Usuario;
+    auth.getCurrentUser().then((response:any)=>{
+      this.user.correo = response.email;
+      this.user.gano = 0;
+      this.user.perdio = 0;
+      this.user.juego = "agilidad aritmetica";
+    });
+  }
 
   comenzarJuego() {
     this.comenzar = true;
@@ -73,12 +86,16 @@ export class PptComponent implements OnInit {
   jugadorGano() {
     this.mostrarMensaje = true;
     this.mensaje = "Ganaste!!!";
+    this.user.gano++;
+    this.db.insertIndividualScore(this.user);
     setTimeout(() => this.reiniciar(), 4000);
   }
 
   jugadorPerdio() {
     this.mostrarMensaje = true;
     this.mensaje = "Perdiste!!!";
+    this.user.perdio++;
+    this.db.insertIndividualScore(this.user);
     setTimeout(() => this.reiniciar(), 4000);
   }
 

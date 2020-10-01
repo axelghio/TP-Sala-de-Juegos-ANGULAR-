@@ -1,5 +1,8 @@
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
-import { JuegoAdivina } from '../../clases/juego-adivina'
+import { JuegoAdivina } from '../../clases/juego-adivina';
+import { Usuario } from '../../clases/user';
+import { FdbService } from '../../servicios/fdb.service';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-adivina-el-numero',
@@ -15,7 +18,16 @@ export class AdivinaElNumeroComponent implements OnInit {
  contador:number;
  ocultarVerificar:boolean;
 
- constructor() {
+ user:Usuario;
+
+ constructor(private db: FdbService, private auth: AuthService) {
+   this.user = new Usuario;
+   auth.getCurrentUser().then((response:any)=>{
+    this.user.correo = response.email;
+    this.user.gano = 0;
+    this.user.perdio = 0;
+    this.user.juego = "adivina el numero";
+   });
    this.nuevoJuego = new JuegoAdivina();
    console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
    this.ocultarVerificar=false;
@@ -76,9 +88,15 @@ export class AdivinaElNumeroComponent implements OnInit {
      {
        this.gano = true;
        x.className = "show Ganador";
+       this.user.gano = this.user.gano + 1;
+       this.db.insertIndividualScore(this.user);
+       this.user.puntos = this.user.gano + this.user.perdio;
+       this.db.insertGlobalScore(this.user);
      }else{
        this.gano = false;
        x.className = "show Perdedor";
+       this.user.perdio = this.user.perdio + 1;
+       this.db.insertIndividualScore(this.user);
      }
    var modelo=this;
    setTimeout(function(){ 
