@@ -29,17 +29,19 @@ export class AgilidadAritmeticaComponent implements OnInit {
   repetidor:any;
 
   user:Usuario;
+  id:number;
 
   private subscription: Subscription;
 
   ngOnInit() {
   }
-   constructor(private db: FdbService, private auth: AuthService) {
+
+  constructor(private db: FdbService, private auth: AuthService) {
     this.user = new Usuario;
     auth.getCurrentUser().then((response:any)=>{
+      this.id = response.uid;
       this.user.correo = response.email;
-      this.user.gano = 0;
-      this.user.perdio = 0;
+      //variables de puntos Sumo Puntos
       this.user.juego = "agilidad aritmetica";
     });
     this.juegoEnPausa();
@@ -130,16 +132,19 @@ export class AgilidadAritmeticaComponent implements OnInit {
       this.gano = true;
       document.getElementById("mensajeAritmetica").style.background = "rgb(40, 216, 63)"
       this.mensaje = "¡ADIVINASTE EL NUMERO, SOS UN GENIO!";
-      this.user.gano++;
-      this.db.insertIndividualScore(this.user);
+      //variables de puntos Sumo Puntos
+      this.db.updateIndividualScore(this.id, this.user);
+      this.fadeIn();
     }
     else
     {
       this.gano = false;
       document.getElementById("mensajeAritmetica").style.background = "rgb(204, 40, 40)"
       this.mensaje = "¡RESPUESTA INCORRECTA!";
+      //variables de puntos Sumo Puntos
+      this.db.updateIndividualScore(this.id, this.user);
+      this.fadeIn();
     }
-    this.fadeIn();
   }
 
   fadeIn()
@@ -148,8 +153,6 @@ export class AgilidadAritmeticaComponent implements OnInit {
       this.mensaje = '';
       this.reiniciarVariables();
       this.juegoEnPausa();
-      this.user.perdio++;
-      this.db.insertIndividualScore(this.user);
     },1500);
   }
 

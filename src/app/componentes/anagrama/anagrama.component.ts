@@ -29,8 +29,7 @@ export class AnagramaComponent implements OnInit {
     this.user = new Usuario;
     auth.getCurrentUser().then((response:any)=>{
       this.user.correo = response.email;
-      this.user.gano = 0;
-      this.user.perdio = 0;
+      //variables de puntos Sumo Puntos
       this.user.juego = "agilidad aritmetica";
     });
   }
@@ -81,14 +80,14 @@ export class AnagramaComponent implements OnInit {
     {
       elemento.style.color = "rgb(39, 185, 26)";
       this.mensajeAlUser = mensaje;
-      this.user.gano++;
+      //variables de puntos Sumo Puntos
       this.db.insertIndividualScore(this.user);
     }
     else
     {
       elemento.style.color = "rgb(197, 30, 30)";
       this.mensajeAlUser = mensaje;
-      this.user.perdio++;
+      //variables de puntos Sumo Puntos
       this.db.insertIndividualScore(this.user);
     }
     setTimeout(() => {

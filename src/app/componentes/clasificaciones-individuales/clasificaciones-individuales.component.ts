@@ -124,34 +124,34 @@ export class ClasificacionesIndividualesComponent implements OnInit {
           {
             this.cGanoTTT++;
           }
-          if(user['perdio'] == 1 && user[''] == 'tateti')
+          if(user['perdio'] == 1 && user['juego'] == 'tateti')
           {
             this.cPerdioTTT++;
           }
-          if(user['gano'] == 1 && user[''] == 'memotest')
+          if(user['gano'] == 1 && user['juego'] == 'memotest')
           {
             this.cGanoM++;
           }
-          if(user['perdio'] == 1 && user[''] == 'memotest')
+          if(user['perdio'] == 1 && user['juego'] == 'memotest')
           {
             this.cPerdioM++;
           }
-          if(user['gano'] == 1 && user[''] == 'okupa')
+          if(user['gano'] == 1 && user['juego'] == 'okupa')
           {
             this.cGanoO++;
           }
-          if(user['perdio'] == 1 && user[''] == 'okupa')
+          if(user['perdio'] == 1 && user['juego'] == 'okupa')
           {
             this.cPerdioO++;
           }
         }
-      } )
+      })
       if(this.cGanoAEN > 0)
         {
           this.user1.juego = 'Adivina el numero';
           this.user1.correo = this.usuarioActual;
-          this.user1.gano =  this.cGanoAEN;
-          this.user1.perdio = this.cPerdioAEN;
+          //this.user1.gano =  this.cGanoAEN;
+          //this.user1.perdio = this.cPerdioAEN;
           this.listUser.push(this.user1 as Usuario);
         }
 
@@ -159,48 +159,48 @@ export class ClasificacionesIndividualesComponent implements OnInit {
         {
           this.user2.juego = 'Agilidad Aritmetica';
           this.user2.correo = this.usuarioActual;
-          this.user2.gano =  this.cGanoAA;
-          this.user2.perdio = this.cPerdioAA;
+          //this.user2.gano =  this.cGanoAA;
+          //this.user2.perdio = this.cPerdioAA;
           this.listUser.push(this.user2 as Usuario);
         }
         if(this.cGanoPPT > 0)
         {
           this.user3.juego = 'Piedra Papel o Tijera';
           this.user3.correo = this.usuarioActual;
-          this.user3.gano =  this.cGanoPPT;
-          this.user3.perdio = this.cPerdioPPT;
+          this.user3.pptGanados =  this.cGanoPPT;
+          this.user3.pptPerdidos = this.cPerdioPPT;
           this.listUser.push(this.user3 as Usuario);
         }
         if(this.cGanoAN > 0)
         {
           this.user4.juego = 'Anagrama';
           this.user4.correo = this.usuarioActual;
-          this.user4.gano =  this.cGanoAN;
-          this.user4.perdio = this.cPerdioAN;
+          //this.user4.gano =  this.cGanoAN;
+          //this.user4.perdio = this.cPerdioAN;
           this.listUser.push(this.user4 as Usuario);
         }
         if(this.cGanoTTT > 0)
         {
           this.user5.juego = 'TATETI';
           this.user5.correo = this.usuarioActual;
-          this.user5.gano =  this.cGanoTTT;
-          this.user5.perdio = this.cPerdioTTT;
+          this.user5.tatetiGanados =  this.cGanoTTT;
+          this.user5.tatetiPerdio = this.cPerdioTTT;
           this.listUser.push(this.user5 as Usuario);
         }
         if(this.cGanoM > 0)
         {
           this.user6.juego = 'MEMOTEST';
           this.user6.correo = this.usuarioActual;
-          this.user6.gano =  this.cGanoM;
-          this.user6.perdio = this.cPerdioM;
+          this.user6.memotestGanados =  this.cGanoM;
+          this.user6.memotestPerdidos = this.cPerdioM;
           this.listUser.push(this.user6 as Usuario);
         }
         if(this.cGanoO > 0)
         {
           this.user7.juego = 'OKUPA';
           this.user7.correo = this.usuarioActual;
-          this.user7.gano =  this.cGanoO;
-          this.user7.perdio = this.cPerdioO;
+          this.user7.okupaGanados =  this.cGanoO;
+          this.user7.okupaPerdidos = this.cPerdioO;
           this.listUser.push(this.user7 as Usuario);
         }
     });

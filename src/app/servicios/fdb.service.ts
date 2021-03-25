@@ -20,23 +20,65 @@ export class FdbService {
     return this.individualUserList;
   }
   getGloballUsers(){
-    return this.individualUserList;
+    return this.globalUserList;
   }
 
   insertIndividualScore(user: Usuario){
     this.individualUserList.push({
       correo: user.correo,
       juego: user.juego,
-      gano: user.gano,
-      perdio: user.perdio
+      memotestGanados: user.memotestGanados,
+      memotestPerdidos: user.memotestPerdidos,
+      okupaGanados: user.okupaGanados,
+      okupaPerdidos: user.okupaPerdidos,
+      pptGanados: user.pptGanados,
+      pptPerdidos: user.pptPerdidos,
+      tatetiGanados: user.tatetiGanados,
+      tatetiPerdidos: user.tatetiPerdio
     });
   }
   
+  updateIndividualScore(id:any, user: Usuario){
+    this.individualUserList.update(id, {
+      juego: user.juego,
+      memotestGanados: user.memotestGanados,
+      memotestPerdidos: user.memotestPerdidos,
+      okupaGanados: user.okupaGanados,
+      okupaPerdidos: user.okupaPerdidos,
+      pptGanados: user.pptGanados,
+      pptPerdidos: user.pptPerdidos,
+      tatetiGanados: user.tatetiGanados,
+      tatetiPerdidos: user.tatetiPerdio
+    });
+  }
+
+  
   insertGlobalScore(user: Usuario){
-    this.individualUserList.push({
+    this.globalUserList.push({
       correo: user.correo,
       juego: user.juego,
-      puntaje: user.puntos
+      memotestGanados: user.memotestGanados,
+      memotestPerdidos: user.memotestPerdidos,
+      okupaGanados: user.okupaGanados,
+      okupaPerdidos: user.okupaPerdidos,
+      pptGanados: user.pptGanados,
+      pptPerdidos: user.pptPerdidos,
+      tatetiGanados: user.tatetiGanados,
+      tatetiPerdidos: user.tatetiPerdio
+    });
+  }
+
+  updateGlobalScore(id:any, user: Usuario){
+    this.globalUserList.update(id, {
+      juego: user.juego,
+      memotestGanados: user.memotestGanados,
+      memotestPerdidos: user.memotestPerdidos,
+      okupaGanados: user.okupaGanados,
+      okupaPerdidos: user.okupaPerdidos,
+      pptGanados: user.pptGanados,
+      pptPerdidos: user.pptPerdidos,
+      tatetiGanados: user.tatetiGanados,
+      tatetiPerdidos: user.tatetiPerdio
     });
   }
 }

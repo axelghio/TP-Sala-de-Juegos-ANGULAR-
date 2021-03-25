@@ -22,22 +22,24 @@ export class MemotestComponent implements OnInit {
   intentos:number;
   
   user:Usuario;
+  id:any;
 
   constructor(private db: FdbService, private auth: AuthService) { 
     this.user = new Usuario;
     auth.getCurrentUser().then((response:any)=>{
+      this.id = response.uid;
       this.user.correo = response.email;
-      this.user.gano = 0;
-      this.user.perdio = 0;
-      this.user.juego = "agilidad aritmetica";
+      this.user.memotestGanados = 0;
+      this.user.memotestPerdidos = 0;
+      this.user.juego = "memotest";
     });
+    //this.db.insertIndividualScore(this.user);
   }
 
 
 
   comenzarJuego() {
     this.comenzar = true;
-    //this.inicializarMostrar(); 
     this.cuadrados.sort(function (a, b) { return 0.5 - Math.random()});
     this.intentos = 15;
    this.ocultar();
@@ -99,16 +101,16 @@ export class MemotestComponent implements OnInit {
   jugadorGano() {
     this.mostrarMensaje = true;
     this.mensaje = "GANASTE!";
-    this.user.gano++;
-    this.db.insertIndividualScore(this.user);
+    this.user.memotestGanados++;
+    this.db.updateIndividualScore(this.id, this.user);
     setTimeout(() => this.reiniciar(), 4000);
   }
 
   jugadorPerdio() {
     this.mostrarMensaje = true;
     this.mensaje = "PERDISTE";
-    this.user.perdio++;
-    this.db.insertIndividualScore(this.user);
+    this.user.memotestPerdidos++;
+    this.db.updateIndividualScore(this.id, this.user);
     setTimeout(() => this.reiniciar(), 4000);
   }
 

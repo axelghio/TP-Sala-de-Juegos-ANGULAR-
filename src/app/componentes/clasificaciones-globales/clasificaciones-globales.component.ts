@@ -35,9 +35,9 @@ export class ClasificacionesGlobalesComponent implements OnInit {
     .subscribe((item)=>{
       item.forEach((element) => {
         let user = element.payload.toJSON();
-        this.usuario.correo = user['correo'];
-        this.usuario.gano = user['gano'];
-        this.usuario.perdio = user['perdio'];
+        //this.usuario.correo = user['correo'];
+        //this.usuario.gano = user['gano'];
+        //this.usuario.perdio = user['perdio'];
         this.usuario.juego = user['juego'];
         this.listUser.push(user);
       })

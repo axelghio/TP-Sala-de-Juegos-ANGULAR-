@@ -30,6 +30,10 @@ export class AuthService {
     return this.authFire.currentUser;
   }
 
+  getCurrentID(){
+    return this.authFire.currentUser.then((response:any)=>{response.uid});
+  }
+
   logOutCurrentUser() {
     this.authFire.signOut();
   }

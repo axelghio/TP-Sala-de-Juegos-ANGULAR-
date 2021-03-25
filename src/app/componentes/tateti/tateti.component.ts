@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as $ from 'jquery'
 import { Router } from '@angular/router';
+import { FdbService } from '../../servicios/fdb.service';
+import { Usuario } from '../../clases/user';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-tateti',
@@ -15,14 +18,22 @@ export class TatetiComponent implements OnInit {
   listadoJugadores;
   usuarioLogueado;
 
-  constructor(private route:Router) {
+  user:Usuario;
+  id:any;
+
+  constructor(private db: FdbService, private auth: AuthService, private router:Router) {
+    this.user = new Usuario;
+    auth.getCurrentUser().then((response:any)=>{
+      this.id = response.uid;
+      this.user.correo = response.email;
+      this.user.tatetiGanados = 0;
+      this.user.tatetiPerdio = 0;
+      this.user.juego = "tateti";
+    });
   }
 
   ngOnInit(): void {
 
-  }
-
-  ngOnDestroy():void{
   }
 
   seleccionarMaquina()
@@ -71,7 +82,8 @@ export class TatetiComponent implements OnInit {
 
   mensajes(value:string){
     if(value == 'gano'){
-      this.jugador.gano++
+      this.user.tatetiGanados++;
+      this.db.updateIndividualScore(this.id, this.user);
       $("#tateti").addClass('termino')
       $("#msj").addClass('gano')
       $("#spmsj").text('Muy bien ganaste!')
@@ -82,7 +94,8 @@ export class TatetiComponent implements OnInit {
       }, 3000);
     }
     else if(value == 'perdio'){
-      this.jugador.perdio++
+      this.user.tatetiPerdio++;
+      this.db.updateIndividualScore(this.id, this.user);
       $("#tateti").addClass('termino')
       $("#msj").addClass('perdio')
       $("#spmsj").text('Suerte la proxima')

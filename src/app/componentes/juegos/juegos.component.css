@@ -8,6 +8,16 @@ h1{
     color: white;
     font: 5.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
 }
+h2{
+    text-align: center;
+    margin-top: 15%;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 2.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
 
 
 p{
@@ -28,7 +38,7 @@ p{
 
 .img1,.img2, .img3, .img4{
     margin-top: 3%;
-    margin-left: 15%;
+    margin-left: 35%;
     margin-right: 5%;
 }.img5, .img6, .img7{
     margin-top: 3%;
@@ -65,6 +75,6 @@ h4{
 }
 
 .clasificaciones{
-    margin-top: -4%;
+    margin-top: -8%;
     margin-left: 80%;
 }

@@ -24,8 +24,7 @@ export class AdivinaElNumeroComponent implements OnInit {
    this.user = new Usuario;
    auth.getCurrentUser().then((response:any)=>{
     this.user.correo = response.email;
-    this.user.gano = 0;
-    this.user.perdio = 0;
+    //variables de puntos
     this.user.juego = "adivina el numero";
    });
    this.nuevoJuego = new JuegoAdivina();
@@ -88,14 +87,14 @@ export class AdivinaElNumeroComponent implements OnInit {
      {
        this.gano = true;
        x.className = "show Ganador";
-       this.user.gano = this.user.gano + 1;
+       //variables de puntos Sumo Puntos
        this.db.insertIndividualScore(this.user);
-       this.user.puntos = this.user.gano + this.user.perdio;
+       //variables de puntos Sumo Puntos
        this.db.insertGlobalScore(this.user);
      }else{
        this.gano = false;
        x.className = "show Perdedor";
-       this.user.perdio = this.user.perdio + 1;
+       //variables de puntos Sumo Puntos
        this.db.insertIndividualScore(this.user);
      }
    var modelo=this;

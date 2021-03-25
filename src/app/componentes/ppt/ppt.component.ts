@@ -21,14 +21,16 @@ export class PptComponent implements OnInit {
   tijera: boolean = false;
 
   user:Usuario;
+  id:any;
 
-  constructor(private db: FdbService, private auth: AuthService) { 
+  constructor(private db: FdbService, private auth: AuthService) {
     this.user = new Usuario;
     auth.getCurrentUser().then((response:any)=>{
+      this.id = response.uid;
       this.user.correo = response.email;
-      this.user.gano = 0;
-      this.user.perdio = 0;
-      this.user.juego = "agilidad aritmetica";
+      this.user.pptGanados = 0;
+      this.user.pptPerdidos = 0;
+      this.user.juego = "ppt";
     });
   }
 
@@ -86,16 +88,16 @@ export class PptComponent implements OnInit {
   jugadorGano() {
     this.mostrarMensaje = true;
     this.mensaje = "Ganaste!!!";
-    this.user.gano++;
-    this.db.insertIndividualScore(this.user);
+    this.user.pptGanados++;
+    this.db.updateIndividualScore(this.id, this.user);
     setTimeout(() => this.reiniciar(), 4000);
   }
 
   jugadorPerdio() {
     this.mostrarMensaje = true;
     this.mensaje = "Perdiste!!!";
-    this.user.perdio++;
-    this.db.insertIndividualScore(this.user);
+    this.user.pptPerdidos++;
+    this.db.updateIndividualScore(this.id, this.user);
     setTimeout(() => this.reiniciar(), 4000);
   }
 

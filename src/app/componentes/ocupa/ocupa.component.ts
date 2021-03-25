@@ -49,8 +49,8 @@ export class OcupaComponent implements OnInit {
     this.user = new Usuario;
     auth.getCurrentUser().then((response:any)=>{
       this.user.correo = response.email;
-      this.user.gano = 0;
-      this.user.perdio = 0;
+      this.user.okupaGanados = 0;
+      this.user.okupaPerdidos = 0;
       this.user.juego = "agilidad aritmetica";
     });
   }
@@ -546,14 +546,14 @@ export class OcupaComponent implements OnInit {
     if(this.puntajeNPC >= 10)
     {
       console.log("El ganador es el NPC.");
-      this.user.perdio++;
+      this.user.okupaPerdidos++;
       this.db.insertIndividualScore(this.user);
 
     }
     else if(this.puntajePlayer >= 10)
     {
       console.log("El ganador es el Player.");
-      this.user.gano++;
+      this.user.okupaGanados++;
       this.db.insertIndividualScore(this.user);
     }
     else{
