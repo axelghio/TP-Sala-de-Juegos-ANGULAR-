@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="Tittle">
+        <h1>CHAT INTERACTIVO</h1>
+    </div>
+</div>
+<section class="overlay">
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+            <div *ngFor="let msj of listaMensajes">
+                <div *ngIf="msj.correo === this.email; then thenBlock; else elseBlock"></div>
+                <div #thenBlock>
+                    <label><b>{{msj.mensaje}}</b></label>
+                    <br>
+                    <label>{{msj.fecha}}</label>
+                </div>
+                <div #elseBlock>
+                    <label>{{msj.correo}}</label>
+                    <label><b>{{msj.mensaje}}</b></label>
+                    <br>
+                    <label>{{msj.fecha}}</label>
+                </div>
+            </div>
+            <input class="inputMSJ" id="idEnviarMsj" [(ngModel)]="envMensj" placeholder="ingrese mensaje">
+          <button class="btn btn-primary" (click)="EnviarMensaje(envMensj)">Enviar</button>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+<div class="row">
+    <div class="Exit">
+        <h2 routerLink="/Principal">Volver</h2>
+    </div>
+</div>

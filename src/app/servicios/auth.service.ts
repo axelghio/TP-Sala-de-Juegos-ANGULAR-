@@ -13,7 +13,7 @@ export class AuthService {
     return new Promise<any>((resolve, rejected) => {
       this.authFire.createUserWithEmailAndPassword(email, password).then((response: any) => {
         resolve(response);
-      }).catch(error => console.log(error))
+      }).catch(error => rejected(error))
     });
   }
 

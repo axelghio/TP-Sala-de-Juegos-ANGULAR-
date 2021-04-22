@@ -15,6 +15,11 @@
         <input type="password" class="form-control bg-transparent" placeholder="password" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="clave" name="psw" required>
       </div>
     </div>
+    <div class="errorLogin">
+      <div *ngIf="mensajeErrorLogin">
+        <div class="alert alert-danger" role="alert">{{mensajeErrorLogin}}</div>
+      </div>
+    </div>
     <div class="btnLogin">
       <button type="button" class="btn btn-outline-primary" *ngIf="logeando"  (click)="Entrar()">Conectarse</button>
     </div>

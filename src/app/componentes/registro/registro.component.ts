@@ -17,6 +17,7 @@ export class RegistroComponent implements OnInit {
 
   correo: string;
   password: string;
+  msjError = "";
 
   constructor(private authService: AuthService, private angularfdb: AngularFireDatabase, private router: Router) { }
 
@@ -32,6 +33,8 @@ export class RegistroComponent implements OnInit {
         this.router.navigate(['/Principal']);
       });
     
-    }).catch(error => console.log(error));
+    },(error:any)=>{
+      this.msjError = " " + error;
+    });
   }
 }

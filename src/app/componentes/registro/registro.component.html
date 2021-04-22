@@ -5,6 +5,11 @@
   <div class="pass">
     <input type="password" placeholder="Ingrese Contraseña" [(ngModel)]='password'>
   </div>
+  <div class="errorRegistro">
+    <div *ngIf="msjError">
+      <div class="alert alert-danger" role="alert">{{msjError}}</div>
+    </div>
+  </div>
   <div class="botton">
     <button (click)="Register()">REGISTRARSE</button>
   </div>

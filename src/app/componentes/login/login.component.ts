@@ -21,15 +21,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  private subscription: Subscription;
   usuario = '';
-  clave= '';
-  logeando=true;
+  clave = '';
+  logeando = true;
+  mensajeErrorLogin = "";
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private service: AuthService) {
+  constructor(private route: ActivatedRoute, private router: Router, private service: AuthService) {
       service.logOutCurrentUser();
   }
 
@@ -38,7 +35,12 @@ export class LoginComponent implements OnInit {
     {
       this.service.login(this.usuario, this.clave).then( res =>{
         this.router.navigate(['/Principal']);
-      }).catch();
+      },(error:any)=>{
+        this.mensajeErrorLogin = " " + error;
+      });
+    }
+    else{
+      this.mensajeErrorLogin = "No se ha ingresado una cuenta.";
     }
   }
 

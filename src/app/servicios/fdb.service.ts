@@ -2,18 +2,20 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Usuario } from '../clases/user';
+import { Msj } from '../clases/msj';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FdbService {
-
+  mensajeUser: AngularFireList<any>;
   individualUserList: AngularFireList<any>;
   globalUserList: AngularFireList<any>;
 
   constructor(private afa: AngularFireAuth, private db: AngularFireDatabase) {
     this.individualUserList = this.db.list('usuariosIndividual');
     this.globalUserList = this.db.list('usuariosGlobal');
+    this.mensajeUser = this.db.list('mensajes');
    }
   
    getIndividualUsers(){
@@ -21,6 +23,18 @@ export class FdbService {
   }
   getGloballUsers(){
     return this.globalUserList;
+  }
+
+  getMensajes(){
+    return this.mensajeUser = this.db.list("mensajeUser");
+  }
+
+  guardarMensajes(msj: Msj){
+    this.mensajeUser.push({
+      correo: msj.correo,
+      mensaje: msj.mensaje,
+      fecha: msj.fecha,
+    });
   }
 
   insertIndividualScore(user: Usuario){

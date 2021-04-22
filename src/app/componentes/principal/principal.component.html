@@ -1,8 +1,16 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<div class="background">
-  <img src="../../../assets/imagenes/SegaBackground.jpg">
-</div>
+
 <div class="tablonInicio">
+  <div class="row">
+    <div class="col-10">
+      <h1>Mi sala de juegos.</h1>
+    </div>
+    <div class="col">
+      <div class="QuienSoy">
+        <h4 routerLink="/QuienSoy">Quien Soy</h4>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col">
       <button type="button" class="btn1 btn btn-outline-info" [routerLink]="['/Juegos']"><p>Juegos</p></button>
@@ -13,19 +21,17 @@
   </div>
   <div class="row">
     <div class="col">
-      <button type="button" class="btn3 btn btn-outline-info"><p>Jugadores</p></button>
+      <button type="button" class="btn3 btn btn-outline-info" [routerLink]="['/Chat']"><p>Chat Interactivo</p></button>
     </div>
     <div class="col">
       <button type="button" class="btn4 btn btn-outline-info"><p>Configuraci&oacute;nes</p></button>
     </div>
   </div>
-</div>
-<div class="tittle">
-  <h1>Mi sala de juegos.</h1>
-</div>
-<div class="QuienSoy">
-  <h4 routerLink="/QuienSoy">Quien Soy</h4>
-</div>
-<div class="Salir">
-  <h4 routerLink="">Desconectar</h4>
+  <div class="row">
+    <div class="col">
+      <div class="Salir">
+        <h4 routerLink="">Desconectar</h4>
+      </div>
+    </div>
+  </div>
 </div>
