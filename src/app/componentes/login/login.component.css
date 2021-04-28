@@ -1,9 +1,9 @@
 .boxLogin{
-    position: relative;
+    /*position: relative;*/
     height: 5%;
     width: 50%;
-    margin-top: -40%;
-    margin-left: 30%;
+    margin-top: 15%;
+    margin-left: 25%;
     border-width: 5%;
     border-color: rgb(14, 10, 10);
     border-style: groove;
@@ -13,21 +13,11 @@
 
 .loginUsername{
     margin-top: 10%;
-    margin-left: 8%;
-    margin-right: 7%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .loginPassword{
-    margin-left: 8%;
-    margin-right: 7%;
-}
-
-.btnLogin{
-    margin-top: 5%;
-    margin-left: 30%;
-}
-
-.btnRegister{
-    margin-top: -4.5%;
-    margin-left: 53%;
+    margin-left: 5%;
+    margin-right: 5%;
 }

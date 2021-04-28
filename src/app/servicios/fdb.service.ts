@@ -15,7 +15,7 @@ export class FdbService {
   constructor(private afa: AngularFireAuth, private db: AngularFireDatabase) {
     this.individualUserList = this.db.list('usuariosIndividual');
     this.globalUserList = this.db.list('usuariosGlobal');
-    this.mensajeUser = this.db.list('mensajes');
+    //this.mensajeUser = this.db.list('mensajeUser');
    }
   
    getIndividualUsers(){

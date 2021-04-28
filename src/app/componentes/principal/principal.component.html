@@ -1,8 +1,45 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<div class="container">
+  <div class="jumbotron" style="background-color: rgba(0, 0, 0, 0.068);">
+    <h1 class="display-3">Bienvenidos</h1>
+  </div>
+  <div class="row">
+    <div class="quienSoy">
+      <div class="col-8">
+        <button type="button" class="btn4 btn btn-info" [routerLink]="['/QuienSoy']"><h2>Quien Soy</h2></button>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+      <button type="button" class="btn1 btn btn-outline-info" [routerLink]="['/Juegos']"><p>Catalogo de Juegos</p></button>
+    </div>
+    <div class="col-md-4">
+      <button type="button" class="btn2 btn btn-outline-info" [routerLink]="['/ClaGlo']"><p>Tabla de posici&oacute;nes</p></button>
+    </div>
+    <div class="col-md-4">
+      <button type="button" class="btn3 btn btn-outline-info" [routerLink]="['/Chat']"><p>Chat Interactivo</p></button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="Salir">
+      <div class="col-md-4">
+        <button type="button" class="btn5 btn btn-danger" [routerLink]="['']"><h3>Desconectar</h3></button>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+
+
+
+<!--
 
 <div class="tablonInicio">
   <div class="row">
-    <div class="col-10">
+    <div class="col-8">
       <h1>Mi sala de juegos.</h1>
     </div>
     <div class="col">
@@ -34,4 +71,4 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
