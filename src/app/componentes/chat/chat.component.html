@@ -11,12 +11,16 @@
                 <div class="card">
                     <div class="card-body">
                         <div *ngFor="let msj of listaMensajes">
-                            <div *ngIf="msj.correo === this.email">
-                                <label>{{msj.correo}}</label>
-                                <label><b>{{msj.mensaje}}</b></label>
-                                <br>
-                                <label>{{msj.fecha}}</label>
+                            <div *ngIf="msj.correo === this.email; else elseBlock">
+                                <p>{{msj.correo}}: </p>
+                                <p><b>{{msj.mensaje}}</b></p>
+                                <p>{{msj.fecha}}</p>
                             </div>
+                            <ng-template #elseBlock>
+                                <p>{{msj.correo}}</p>
+                                <p>{{msj.fecha}}</p>
+                                <p><b>{{msj.mensaje}}</b></p>
+                            </ng-template>
                         </div>
                         <input class="inputMSJ" id="idEnviarMsj" [(ngModel)]="envMensj" placeholder="ingrese mensaje">
                         <button class="btn btn-primary" (click)="EnviarMensaje(envMensj)">Enviar</button>
