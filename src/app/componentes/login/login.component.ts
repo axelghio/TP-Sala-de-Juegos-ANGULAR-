@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   clave = '';
   logeando = true;
   mensajeErrorLogin = "";
+  randomUser;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: AuthService) {
       service.logOutCurrentUser();
@@ -46,5 +47,19 @@ export class LoginComponent implements OnInit {
 
   Registrarse(){
     this.router.navigate(['/Registro']);
+  }
+
+  UsuarioRapido(){
+    this.randomUser = Math.round(Math.random() * (2 - 1));
+    switch (this.randomUser) {
+      case 0:
+        this.usuario = "usuario@usuario.com";
+        this.clave = "123456";
+        break;
+      case 1:
+        this.usuario = "admin@admin.com";
+        this.clave = "123456";
+        break;
+    }
   }
 }

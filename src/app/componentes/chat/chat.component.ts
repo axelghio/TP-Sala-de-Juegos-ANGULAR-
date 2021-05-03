@@ -20,9 +20,7 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.auth.getCurrentUser().then((response: any) => {
-      this.email = response.email;
-    });
+    this.email = localStorage.getItem("usuario");
     this.db.getMensajes()
     .snapshotChanges()
     .subscribe((item) => {

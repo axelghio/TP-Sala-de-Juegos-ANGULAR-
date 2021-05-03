@@ -13,7 +13,6 @@ import { TatetiComponent } from '../componentes/tateti/tateti.component';
 import { MemotestComponent } from '../componentes/memotest/memotest.component';
 import { OcupaComponent } from '../componentes/ocupa/ocupa.component';
 import { ClasificacionesIndividualesComponent } from '../componentes/clasificaciones-individuales/clasificaciones-individuales.component';
-import { ClasificacionesGlobalesComponent } from '../componentes/clasificaciones-globales/clasificaciones-globales.component';
 import { ChatComponent} from '../componentes/chat/chat.component';
 import { from } from 'rxjs';
 
@@ -31,7 +30,6 @@ const MiRuteo = [
     },
 //clasificaciones
 {path: 'ClaIndi', component: ClasificacionesIndividualesComponent},
-{path: 'ClaGlo', component: ClasificacionesGlobalesComponent},
 
 //OTROS
 {path: '**' , component: ErrorComponent},

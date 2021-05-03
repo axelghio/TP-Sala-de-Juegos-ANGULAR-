@@ -22,13 +22,26 @@ export class TatetiComponent implements OnInit {
   id:any;
 
   constructor(private db: FdbService, private auth: AuthService, private router:Router) {
-    this.user = new Usuario;
-    auth.getCurrentUser().then((response:any)=>{
-      this.id = response.uid;
-      this.user.correo = response.email;
-      this.user.tatetiGanados = 0;
-      this.user.tatetiPerdio = 0;
-      this.user.juego = "tateti";
+    this.user = new Usuario();
+    this.db.getIndividualUsers().snapshotChanges().subscribe((item)=>{
+      item.forEach((element) => {
+        let user = element.payload.toJSON();
+        if(localStorage.getItem("usuario") === user["correo"])
+        {
+          this.id = element.key;
+          console.log("soy: " + user["correo"]);
+          this.user.correo = user["correo"];
+          this.user.juego = "tateti";
+          this.user.memotestGanados = user["memotestGanados"];
+          this.user.memotestPerdidos = user["memotestPerdidos"];
+          this.user.okupaGanados = user["okupaGanados"];
+          this.user.okupaPerdidos = user["okupaPerdidos"];
+          this.user.pptGanados = user["pptGanados"];
+          this.user.pptPerdidos = user["pptPerdidos"];
+          this.user.tatetiGanados = user["tatetiGanados"];
+          this.user.tatetiPerdio = user["tatetiPerdidos"];
+        }
+      })
     });
   }
 
@@ -129,8 +142,7 @@ export class TatetiComponent implements OnInit {
         this.mensajes('perdio')
       }
       else{
-        this.mensajes('Es tu turno')
-
+        this.mensajes('Es tu turno');
       }
     },2500);
   }

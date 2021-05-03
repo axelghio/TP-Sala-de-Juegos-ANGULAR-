@@ -31,27 +31,13 @@ export class PrincipalComponent implements OnInit {
   constructor(private auth: AuthService, private db: FdbService){
     this.user = new Usuario();
     this.auth.getCurrentUser().then((response: any) => {
-      console.log("Usuario actualmente logeado: " + response.email);
-      this.user.correo = response.email;
+      localStorage.setItem("usuario", response.email);
+      console.log("Usuario actualmente logeado: " + localStorage.getItem("usuario"));
     });
-    this.SetearJugador();
     //this.VerificarUsuario();
   }
 
-  SetearJugador(){
-    this.auth.getCurrentUser().then((response: any) => {
-      this.id = response.uid;
-      this.user.correo = response.email;
-      this.user.pptGanados = 0;
-      this.user.pptPerdidos = 0;
-      this.user.memotestGanados = 0;
-      this.user.memotestPerdidos = 0;
-      this.user.okupaGanados = 0;
-      this.user.okupaPerdidos = 0;
-      this.user.tatetiGanados = 0;
-      this.user.tatetiPerdio = 0;
-      this.user.juego = "";
-      this.db.insertIndividualScore(this.user);
-    });
+  Desconectar(){
+    localStorage.removeItem("usuario");
   }
 }

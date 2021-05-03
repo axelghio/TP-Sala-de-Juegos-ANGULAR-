@@ -14,7 +14,6 @@ import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { AgmCoreModule } from '@agm/core';
 import { SexoPipe } from './pipes/sexo.pipe';
 import { ClasificacionesIndividualesComponent } from './componentes/clasificaciones-individuales/clasificaciones-individuales.component';
-import { ClasificacionesGlobalesComponent } from './componentes/clasificaciones-globales/clasificaciones-globales.component';
 
 //Import Juegos
 import { PptComponent } from './componentes/ppt/ppt.component';
@@ -58,7 +57,6 @@ const firebaseConfig = {
     MemotestComponent,
     OcupaComponent,
     ClasificacionesIndividualesComponent,
-    ClasificacionesGlobalesComponent,
     ChatComponent
   ],
   imports: [

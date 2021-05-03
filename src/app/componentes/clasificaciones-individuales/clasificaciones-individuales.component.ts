@@ -73,9 +73,7 @@ export class ClasificacionesIndividualesComponent implements OnInit {
 
   TraerUser()
   {
-    this.auth.getCurrentUser().then((response: any) => {
-      this.usuarioActual = response.email;
-    });
+      this.usuarioActual = localStorage.getItem("usuario");
   }
 
   ObtenerUsuario()
@@ -88,7 +86,7 @@ export class ClasificacionesIndividualesComponent implements OnInit {
 
         //this.user1.correo = user['correo'];
         //this.user1.juego = 'adivina el numero';
-        if(this.usuarioActual == user['correo'])
+        if(this.usuarioActual === user['correo'])
         {
           if(user['gano'] == 1 && user['juego'] == 'adivina el numero'){
             this.cGanoAEN++;

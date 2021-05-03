@@ -5,6 +5,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthService } from "../../servicios/auth.service";
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
+import { Usuario } from '../../clases/user';
+import { FdbService } from '../..//servicios/fdb.service';
 
 
 @Component({
@@ -18,8 +20,12 @@ export class RegistroComponent implements OnInit {
   correo: string;
   password: string;
   msjError = "";
+  user: Usuario;
+  id;
 
-  constructor(private authService: AuthService, private angularfdb: AngularFireDatabase, private router: Router) { }
+  constructor(private authService: AuthService, private angularfdb: AngularFireDatabase, private router: Router, private db: FdbService) { 
+    this.user = new Usuario();
+  }
 
   ngOnInit() {
   }
@@ -27,14 +33,24 @@ export class RegistroComponent implements OnInit {
   Register()
   {
     this.authService.register(this.correo, this.password).then(response => {
-
-      this.authService.getCurrentUser().then((response: any) => {
-        //this.angularfdb.list('usuariosIndividual').set(response.uid, { correo:this.correo, juego: '', gano: 0, perdio: 0, id: response.uid });
-        this.router.navigate(['/Principal']);
-      });
-    
+      this.SetearJugador(this.correo);
+      this.router.navigate(['/Principal']);
     },(error:any)=>{
       this.msjError = " " + error;
     });
+  }
+
+  SetearJugador(correo){
+    this.user.correo = correo;
+    this.user.pptGanados = 0;
+    this.user.pptPerdidos = 0;
+    this.user.memotestGanados = 0;
+    this.user.memotestPerdidos = 0;
+    this.user.okupaGanados = 0;
+    this.user.okupaPerdidos = 0;
+    this.user.tatetiGanados = 0;
+    this.user.tatetiPerdio = 0;
+    this.user.juego = "";
+    this.db.insertIndividualScore(this.user);
   }
 }
