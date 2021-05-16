@@ -29,7 +29,6 @@ export class TatetiComponent implements OnInit {
         if(localStorage.getItem("usuario") === user["correo"])
         {
           this.id = element.key;
-          console.log("soy: " + user["correo"]);
           this.user.correo = user["correo"];
           this.user.juego = "tateti";
           this.user.memotestGanados = user["memotestGanados"];

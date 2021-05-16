@@ -1,10 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
-import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './componentes/error/error.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
@@ -30,6 +28,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 //servicios
 import { AuthService } from "../app/servicios/auth.service";
 import { ChatComponent } from './componentes/chat/chat.component';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDlW-3mHm-Z3peRyHSROVl6nmSrpZDRURo",
@@ -57,13 +56,14 @@ const firebaseConfig = {
     MemotestComponent,
     OcupaComponent,
     ClasificacionesIndividualesComponent,
-    ChatComponent
+    ChatComponent,
+    EncuestaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RuteandoModule,
-    HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     }),
@@ -71,7 +71,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
