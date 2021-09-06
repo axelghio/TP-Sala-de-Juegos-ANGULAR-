@@ -16,9 +16,8 @@ import { AuthService } from '../../servicios/auth.service'
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
-  
-  user:Usuario;
   id:any;
+  usernow;
 
  public status: any = {
     isFirstOpen: true,
@@ -26,15 +25,19 @@ export class PrincipalComponent implements OnInit {
   };
   
   ngOnInit() {
+    this.router.navigate[('')];
   }
 
-  constructor(private auth: AuthService, private db: FdbService){
-    this.user = new Usuario();
+  constructor(private auth: AuthService, private router: Router){
+    
     this.auth.getCurrentUser().then((response: any) => {
       localStorage.setItem("usuario", response.email);
+      this.usernow = localStorage.getItem("usuario");
       console.log("Usuario actualmente logeado: " + localStorage.getItem("usuario"));
+    }).catch((e)=>{
+      this.router.navigate(['']);
     });
-    //this.VerificarUsuario();
+    
   }
 
   Desconectar(){
