@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<div class="game-cointain">
+  <h3>NPC PUNTAJE: {{puntajeNPC}}</h3>
+  <div class="card-NPC-contain">
+    <div class="npc-Cards">
+      <button id="npc-card1" (click)="jugadaNPC()">{{npcCard1}}</button>
+      <button id="npc-card2" (click)="jugadaNPC()">{{npcCard2}}</button>
+      <button id="npc-card3" (click)="jugadaNPC()">{{npcCard3}}</button>
+    </div>
+  </div>
+  <div class="tablero-contain">
+    <div class="tablero-Cards-1">
+      <button id="tablero-card1" (click)="manejadora(cartaTablero1)">{{cartaTablero1}}</button>
+      <button id="tablero-card2" (click)="manejadora(cartaTablero2)">{{cartaTablero2}}</button>
+    </div>
+    <div class="tablero-Cards-2">
+      <button id="tablero-card3" (click)="manejadora(cartaTablero3)">{{cartaTablero3}}</button>
+      <button id="tablero-card4" (click)="manejadora(cartaTablero4)">{{cartaTablero4}}</button>
+    </div>
+  </div>
+  <h5>{{errorMSJ}}</h5>
+  <div class="tablero-mazo">
+    <div class="mazo">
+      <h3>Mazo</h3>
+      <button id="mazo" (click)="mazoPrincipal()"></button>
+    </div>
+  </div>
+  <div class="card-User-contain">
+    <div class="player-Cards">
+      <button id="player-card1" (click)="jugadaPlayer(playerCard1)">{{playerCard1}}</button>
+      <button id="player-card2" (click)="jugadaPlayer(playerCard2)">{{playerCard2}}</button>
+      <button id="player-card3" (click)="jugadaPlayer(playerCard3)">{{playerCard3}}</button>
+    </div>  
+  </div>
+  <h3>PLAYER PUNTAJE: {{puntajePlayer}}</h3>
+</div>
+<div class="Exit">
+  <h4 routerLink="/Juegos">Volver</h4>
+</div>

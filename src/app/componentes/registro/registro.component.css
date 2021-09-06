@@ -1,0 +1,31 @@
+.contenedor{
+    height: 5%;
+    width: 50%;
+    margin-top: 15%;
+    margin-left: 25%;
+    border-width: 5%;
+    border-color: rgb(14, 10, 10);
+    border-style: groove;
+    border-radius: 2%;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #1351c5;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}

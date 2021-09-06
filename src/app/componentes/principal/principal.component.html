@@ -1,0 +1,39 @@
+
+<div class="container">
+  <div class="jumbotron" style="background-color: rgba(0, 0, 0, 0.068);">
+    <h1 class="display-3">Bienvenidos</h1>
+  </div>
+  <div class="row">
+    <div class="quienSoy">
+      <div class="col-8">
+        <button type="button" class="btn4 btn btn-info" [routerLink]="['/QuienSoy']"><h2>Quien Soy</h2></button>
+      </div>
+    </div> 
+    <div class="encuesta">
+      <div class="col-4">
+        <button type="button" class="btn4 btn btn-info" [routerLink]="['/encuesta']"><p>Encuesta</p></button>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+      <button type="button" class="btn1 btn btn-outline-info" [routerLink]="['/Juegos']"><p>Catalogo de Juegos</p></button>
+    </div>
+    <div class="col-md-4">
+      <button type="button" class="btn2 btn btn-outline-info" [routerLink]="['/clasificaciones']"><p>Tabla de posici&oacute;nes</p></button>
+    </div>
+    <div class="col-md-4">
+      <button type="button" class="btn3 btn btn-outline-info" [routerLink]="['/Chat']"><p>Chat Interactivo</p></button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="Salir">
+      <div class="col-md-4">
+        <button type="button" class="btn5 btn btn-danger" [routerLink]="['']" (click)="Desconectar()"><h3>Desconectar</h3></button>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>

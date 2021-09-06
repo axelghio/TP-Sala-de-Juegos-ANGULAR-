@@ -1,0 +1,31 @@
+<div class="contenedor">
+  <table class="table">
+    <thead>
+      <tr></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <div class="email">
+          <input type="text" placeholder="Ingrese Correo" [(ngModel)]='correo'>
+        </div>        
+      </tr>
+      <tr>
+        <div class="pass">
+          <input type="password" placeholder="Ingrese Contraseña" [(ngModel)]='password'>
+        </div>
+      </tr>
+      <tr>
+        <div class="errorRegistro">
+          <div *ngIf="msjError">
+            <div class="alert alert-danger" role="alert">{{msjError}}</div>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="botton">
+          <button (click)="Register()">REGISTRARSE</button>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>

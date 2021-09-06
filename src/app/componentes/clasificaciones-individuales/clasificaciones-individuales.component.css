@@ -1,0 +1,18 @@
+table{
+    width:720px;
+    margin:0 auto;
+    color:white;
+    text-align:center;
+  }
+  tr{
+    cursor:pointer;
+  }
+  body{
+    background-color:#0F3E76;
+  }
+  .lista-Users{
+    background-color: #0000008a;
+    width: 750px;
+    margin:0 auto;
+    text-align:center;
+  }

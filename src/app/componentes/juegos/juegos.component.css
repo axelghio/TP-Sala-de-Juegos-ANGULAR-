@@ -1,0 +1,80 @@
+h1{
+    text-align: center;
+    margin-top: -43%;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 5.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+h2{
+    text-align: center;
+    margin-top: 15%;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 2.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+
+p{
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 5.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+.tablonInicio{ 
+    align-content: center;
+    align-items: center;
+    margin-top: -50%;
+    margin-left: 12%;
+    margin-right: 15%;
+}
+
+.img1,.img2, .img3, .img4{
+    margin-top: 3%;
+    margin-left: 35%;
+    margin-right: 5%;
+}.img5, .img6, .img7{
+    margin-top: 3%;
+    margin-left: 25%;
+    margin-right: 5%;
+}
+
+h4{
+    margin-top: 2%;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 2em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+.row, .col{
+    background-color: rgba(0, 0, 125, 0.4);
+    width: 1500px;
+    height: 350px;
+}
+
+.tablonInicio, .row, .col{
+    border-style: double;
+    border-color: steelblue;
+}
+
+.Exit{
+    margin-left: 5%;
+    margin-top: 38%;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 2.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+.clasificaciones{
+    margin-top: -8%;
+    margin-left: 80%;
+}

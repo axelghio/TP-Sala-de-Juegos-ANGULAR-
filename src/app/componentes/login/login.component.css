@@ -1,0 +1,23 @@
+.boxLogin{
+    /*position: relative;*/
+    height: 5%;
+    width: 50%;
+    margin-top: 15%;
+    margin-left: 25%;
+    border-width: 5%;
+    border-color: rgb(14, 10, 10);
+    border-style: groove;
+    border-radius: 2%;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.loginUsername{
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.loginPassword{
+    margin-left: 5%;
+    margin-right: 5%;
+}

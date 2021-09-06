@@ -1,0 +1,133 @@
+<div class="lista-Users">
+    <table class="table">
+        <tr>PIEDRA PAPEL O TIJERA</tr>
+        <tr class="head">
+            <th>
+                <h5>Usuario</h5>
+            </th>
+            <th>
+                <h5>Partidas Ganadas</h5>
+            </th>
+            <th>
+                <h5>Partidas Perdidas</h5>
+            </th>
+        </tr>
+        <tr *ngFor="let item of listUser">
+            <div *ngIf="item.pptGanados != 0 || item.pptPerdidos != 0; else elseBlock1">
+                <td>
+                    <h5>{{item.correo}}</h5>
+                </td>
+                <td>
+                    <h5>{{item.pptGanados}}</h5>
+                </td>
+                <td>
+                    <h5>{{item.pptPerdidos}}</h5>
+                </td>
+            </div>
+            <ng-template #elseBlock1>
+                <td>
+                    <h5>No hay resultados para listar</h5>
+                </td>
+            </ng-template>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>TATETI</tr>
+        <tr class="head">
+            <th>
+                <h5>Usuario</h5>
+            </th>
+            <th>
+                <h5>Partidas Ganadas</h5>
+            </th>
+            <th>
+                <h5>Partidas Perdidas</h5>
+            </th>
+        </tr>
+        <tr *ngFor="let item of listUser">
+            <div *ngIf="item.tatetiGanados != 0 || item.tatetiPerdidos != 0; else elseBlock2">
+                <td>
+                    <h5>{{item.correo}}</h5>
+                </td>
+                <td>
+                    <h5>{{item.tatetiGanados}}</h5>
+                </td>
+                <td>
+                    <h5>{{item.tatetiPerdidos}}</h5>
+                </td>
+            </div>
+            <ng-template #elseBlock2>
+                <td>
+                    <h5>No hay resultados para listar</h5>
+                </td>
+            </ng-template>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>MEMOTEST</tr>
+        <tr class="head">
+            <th>
+                <h5>Usuario</h5>
+            </th>
+            <th>
+                <h5>Partidas Ganadas</h5>
+            </th>
+            <th>
+                <h5>Partidas Perdidas</h5>
+            </th>
+        </tr>
+        <tr *ngFor="let item of listUser">
+            <div *ngIf="item.memotestGanados != 0 || item.memotestPerdidos != 0" ; else elseBlock3>
+                <td>
+                    <h5>{{item.correo}}</h5>
+                </td>
+                <td>
+                    <h5>{{item.memotestGanados}}</h5>
+                </td>
+                <td>
+                    <h5>{{item.memotestPerdidos}}</h5>
+                </td>
+            </div>
+            <ng-template #elseBlock3>
+                <td>
+                    <h5>No hay resultados para listar</h5>
+                </td>
+            </ng-template>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>OKUPA</tr>
+        <tr class="head">
+            <th>
+                <h5>Usuario</h5>
+            </th>
+            <th>
+                <h5>Partidas Ganadas</h5>
+            </th>
+            <th>
+                <h5>Partidas Perdidas</h5>
+            </th>
+        </tr>
+        <tr *ngFor="let item of listUser">
+            <div *ngIf="item.okupaGanados != 0 || item.okupaPerdidos != 0; else elseBlock4">
+                <td>
+                    <h5>{{item.correo}}</h5>
+                </td>
+                <td>
+                    <h5>{{item.okupaGanados}}</h5>
+                </td>
+                <td>
+                    <h5>{{item.okupaPerdidos}}</h5>
+                </td>
+            </div>
+            <ng-template #elseBlock4>
+                <td>
+                    <h5>No hay resultados para listar</h5>
+                </td>
+            </ng-template>
+        </tr>
+    </table>
+</div>
+<div class="Exit">
+    <h4 routerLink="/Juegos">Atras</h4>
+</div>

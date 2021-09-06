@@ -1,0 +1,40 @@
+.imagenDeQuienSoy{
+    width: 100%;
+}
+
+.presentacion{
+    margin-top: 2%;
+    margin-left: 18%;
+    width: 1200px;
+    height: 500px;
+    background-color: khaki;
+    border-style: groove;
+}
+
+.presentacion > img{
+    margin-left: 35%;
+}
+
+h3{
+    text-align: center;
+}
+p{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.mi-Game{
+    margin-top: 5%;
+    margin-left: 18%;
+    width: 1200px;
+    height: 250px;
+    background-color: khaki;
+}
+
+.Exit{
+    margin-left: 5%;
+    margin-top: 0%;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 2.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}

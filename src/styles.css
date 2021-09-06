@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+.backgroundGlobal{
+    background: url("./assets/imagenes/SegaBackground.jpg");
+    background-position: cover;
+    background-size: cover;
+}

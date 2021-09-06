@@ -1,0 +1,128 @@
+.game-cointain{
+    height: 800px;
+    width: 800px;
+    background: linear-gradient(-55deg, black, gray, black );
+    margin-top: 5%;
+    margin-left: 29%;
+}
+
+.card-NPC-contain > div{
+    height: 150px;
+    width: 450px;
+    margin-left: 22%;
+    background: wheat;
+    border-style: groove;
+    display: flex;
+}
+
+h3{
+    text-align: center;
+    color: lightseagreen;
+}
+
+h5{
+    text-align: center;
+    color: yellow;
+}
+
+.tablero-contain{
+    height: 280px;
+    width: 350px;
+    margin-left: 28%;
+    margin-top: 5%;
+    background: wheat;
+    border-style: groove;
+    display: flex;
+}
+
+.card-User-contain > div{
+    height: 150px;
+    width: 450px;
+    margin-left: 22%;
+    margin-top: 5%;
+    background: wheat;
+    border-style: groove;
+    display: flex;
+}
+
+.npc-Cards > button{
+    justify-content: center;
+    height: 125px;
+    width: 105px;
+    margin-top: 2%;
+    margin-left: 7%;
+    margin-bottom: 2%;
+    background: tomato;
+    border-style: groove;
+    /*background: url("../../../assets/imagenes/cards/backCard.png");*/
+    background-position: center;
+}
+
+.player-Cards > button{
+    justify-content: center;
+    height: 125px;
+    width: 105px;
+    margin-top: 2%;
+    margin-left: 7%;
+    margin-bottom: 2%;
+    background: tomato;
+    border-style: ridge;
+    /*background: url("../../../assets/imagenes/cards/backCard.png");*/
+    background-position: center;
+}
+
+.tablero-Cards-1 > button{
+    justify-content: center;
+    height: 125px;
+    width: 105px;
+    margin-top: 3.5%;
+    margin-left: 20%;
+    margin-bottom: 2%;
+    background: tomato;
+    border-style: ridge;
+    /*background: url("../../../assets/imagenes/cards/backCard.png");*/
+    background-position: center;
+}
+
+.tablero-Cards-2 > button{
+    justify-content: center;
+    height: 125px;
+    width: 105px;
+    margin-top: 3.5%;
+    margin-left: 20%;
+    margin-bottom: 2%;
+    background: tomato;
+    border-style: ridge;
+    /*background: url("../../../assets/imagenes/cards/backCard.png");*/
+    background-position: center;
+}
+
+.tablero-mazo{
+    height: 182px;
+    width: 122px;
+    margin-left: 5%;
+    margin-top: -23%;
+    background: wheat;
+    border-style: groove;
+    display: flex;
+}
+
+.mazo > button{
+    height: 125px;
+    width: 105px;
+    margin-top: 3.5%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    background: tomato;
+    border-style: ridge;
+    /*background: url("../../../assets/imagenes/cards/backCard.png");*/
+    background-position: center;
+}
+
+.Exit{
+    margin-left: 5%;
+    margin-top: 0%;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 2.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}

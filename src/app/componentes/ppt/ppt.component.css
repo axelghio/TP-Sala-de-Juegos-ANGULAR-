@@ -1,0 +1,124 @@
+*{
+    animation: fadeIn 1.5s;  
+}
+  
+.cnt-ppt {
+    margin-top: 5%;
+    margin-left: 25%;
+    width: 50vw;
+    height: 75vh;
+    /*border-radius: 15%;
+    background: var(--dark-blue);
+    border: 4px solid var(--red);*/
+    overflow: hidden;
+    animation: flicker 2s infinite alternate;  
+}
+
+.lbl-ppt {
+    top: 0%;
+    height: 20%;
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--red);
+}
+  
+.cnt-juego-ppt {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.Exit, button{
+    margin-top: 1%;
+    margin-left: 5%;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: .5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+button{
+    margin-left: -15%;
+    width: 30%;
+    border: 2px solid var(--light-blue);
+    /*color: var(--white);*/
+    background: transparent;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 5.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+.cnt-jugadas-ppt , .cnt-resultados-ppt {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.piedra , .papel , .tijera {
+    height: 100%;
+    width: 20%;
+    background-color: var(--light-blue);
+    background-size: 100% 100%;
+    border-radius: 20%;
+}
+
+.piedra:hover , .papel:hover , .tijera:hover {
+    background-color: var(--red);
+}
+
+.piedra {
+    background-image: url("../../../assets/imagenes/Piedra.jpg");
+}
+
+.papel {
+    background-image: url("../../../assets/imagenes/Papel.jpg");
+}
+
+.tijera {
+    background-image: url("../../../assets/imagenes/Tijera.jpg");
+}
+
+.jugador , .cpu {
+    height: 100%;
+    width: 20%;
+    background-color: var(--light-blue);
+    color: red;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 20%;
+}
+
+.fondoPiedra {
+    background-image: url("../../../assets/imagenes/Piedra.jpg");
+    background-size: 100% 100%
+}
+
+.fondoPapel {
+    background-image: url("../../../assets/imagenes/Papel.jpg");
+    background-size: 100% 100%
+}
+
+.fondoTijera {
+    background-image: url("../../../assets/imagenes/Tijera.jpg");
+    background-size: 100% 100%
+}
+
+input {
+    border: 0px;
+    border-bottom: 2px solid var(--light-blue);
+    width: 50%;
+    text-align: center;
+    color: var(--red);
+    background: transparent;
+}
+
+h2 {
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 5.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}

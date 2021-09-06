@@ -1,0 +1,57 @@
+<div class="boxLogin">
+  <table class="table">
+    <thead>
+      <tr>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <div class="loginUsername">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control bg-transparent" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="usuario"  name="uname" required>
+            <div class="input-group-append">
+              <span class="input-group-text bg-transparent text-white" id="basic-addon2">@example.com</span>
+            </div>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="loginPassword">
+          <div class="input-group mb-3">
+            <input type="password" class="form-control bg-transparent" placeholder="password" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="clave" name="psw" required>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="errorLogin">
+          <div *ngIf="mensajeErrorLogin">
+            <div class="alert alert-danger" role="alert">{{mensajeErrorLogin}}</div>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="buttons">
+          <td>
+            <div class="btnLogin">
+              <button type="button" class="btn btn-outline-primary" *ngIf="logeando"  (click)="Entrar()">Conectarse</button>
+            </div>
+          </td>
+          <td>
+            <div class="btnRegister">
+              <button type="button" class="btn btn-outline-primary" (click)="Registrarse()">Registrarse</button>
+            </div>
+          </td>
+        </div>
+      </tr>
+      <tr>
+        <div class="buttonAccessFast">
+          <td>
+            <div class="btnLogin">
+              <button type="button" class="btn btn-outline-primary" *ngIf="logeando"  (click)="UsuarioRapido()">Usuario_Rapido</button>
+            </div>
+          </td>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>

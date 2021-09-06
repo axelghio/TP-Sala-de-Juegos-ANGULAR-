@@ -1,0 +1,20 @@
+.chat{
+    height: 5%;
+    width: 100%;
+    margin-top: 15%;
+    border-width: 5%;
+    border-color: rgb(14, 10, 10);
+    border-style: groove;
+    border-radius: 2%;
+    background-color: rgba(247, 210, 210, 0.7);
+}
+.Exit, .Tittle{
+    margin-left: 5%;
+    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+    color: white;
+    font: 2.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+.card-body{
+    overflow: auto;
+}
