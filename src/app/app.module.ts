@@ -14,9 +14,8 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { ClasificacionesIndividualesComponent } from './componentes/clasificaciones-individuales/clasificaciones-individuales.component';
 
 //Import Juegos
-import { PptComponent } from './componentes/ppt/ppt.component';
-import { TatetiComponent } from './componentes/tateti/tateti.component';
-import { MemotestComponent } from './componentes/memotest/memotest.component';
+import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
+import { MayormenorComponent } from './componentes/mayormenor/mayormenor.component';
 import { OcupaComponent } from './componentes/ocupa/ocupa.component';
 
 //Import firebase
@@ -29,7 +28,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from "../app/servicios/auth.service";
 import { ChatComponent } from './componentes/chat/chat.component';
 import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
-import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDlW-3mHm-Z3peRyHSROVl6nmSrpZDRURo",
@@ -52,14 +50,12 @@ const firebaseConfig = {
     RegistroComponent,
     QuienSoyComponent,
     SexoPipe,
-    PptComponent,
-    TatetiComponent,
-    MemotestComponent,
+    AhorcadoComponent,
+    MayormenorComponent,
     OcupaComponent,
     ClasificacionesIndividualesComponent,
     ChatComponent,
-    EncuestaComponent,
-    AhorcadoComponent
+    EncuestaComponent
   ],
   imports: [
     BrowserModule,
