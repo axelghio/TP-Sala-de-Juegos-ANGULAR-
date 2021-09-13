@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Msj } from '../../clases/msj';
 import { FdbService } from '../../servicios/fdb.service';
-import { AuthService } from "../../servicios/auth.service";
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -15,11 +15,14 @@ export class ChatComponent implements OnInit {
 
   constructor(
     private db: FdbService,
-    private auth: AuthService) {
+    private router: Router) {
       this.mensaje = new Msj();
   }
 
   ngOnInit(): void {
+    if(this.db == null){
+      this.router.navigate(['']);
+    }
     this.email = localStorage.getItem("usuario");
     this.db.getMensajes()
     .snapshotChanges()

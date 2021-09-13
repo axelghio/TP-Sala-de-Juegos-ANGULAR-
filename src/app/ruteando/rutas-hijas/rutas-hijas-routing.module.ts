@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { JuegosComponent } from '../../componentes/juegos/juegos.component';
-import { PptComponent } from '../../componentes/ppt/ppt.component';
+//import { PptComponent } from '../../componentes/ppt/ppt.component';
 import { TatetiComponent } from '../../componentes/tateti/tateti.component';
 import { MemotestComponent } from '../../componentes/memotest/memotest.component';
 import { OcupaComponent } from '../../componentes/ocupa/ocupa.component';
+import { AhorcadoComponent } from '../../componentes/ahorcado/ahorcado.component';
 
 const routes: Routes = [
   {
     path: "",
     children: 
     [
+      //{ path: "Ppt", component: PptComponent },
       { path: "", component: JuegosComponent },
-      { path: "Ppt", component: PptComponent },
+      { path: "Ahorcado", component: AhorcadoComponent},
       { path: "Memotest", component: MemotestComponent },
       { path: "MiJuego", component: OcupaComponent },
       { path: "Tateti", component: TatetiComponent },
