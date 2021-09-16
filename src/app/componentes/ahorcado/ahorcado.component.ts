@@ -44,7 +44,7 @@ export class AhorcadoComponent implements OnInit {
       this.intentos = this.intentos-1;
     }
 
-    console.log(this.verificarPalabraCompleta());
+    //console.log(this.verificarPalabraCompleta());
     if(this.verificarPalabraCompleta()){
       this.mensaje = "Felicidades GANASTE!!!";
       setTimeout(() => this.reintentarJuego(), 3000);
@@ -71,14 +71,25 @@ export class AhorcadoComponent implements OnInit {
   verificarPalabraCompleta():boolean{
     let arrayCorrectas = [];
     let retorno = false;
+    let letrasPalabrasBool = [];
     for(let index = 0; index < this.letrasPalabras.length; index++) {
+      console.log("Letra en la posicion: " + index + "  es: " + document.getElementById(index.toString()).getAttribute('placeholder'));
       if(document.getElementById(index.toString()).getAttribute('placeholder') != ''){
         arrayCorrectas[index] = true;
       }
+      else{
+        arrayCorrectas[index] = false;
+      }
     }
-    if(this.letrasPalabras.length == arrayCorrectas.length){
+
+    for (let index = 0; index < this.letrasPalabras.length; index++) {
+      letrasPalabrasBool[index] = true;
+    }
+
+    if(arrayCorrectas.every((val, index) => val === letrasPalabrasBool[index])){
       retorno = true;
     }
+
     return retorno;
   }
 
